@@ -35,7 +35,7 @@ class FBDebugHomeViewController: UIViewController {
         return temp
     }()
     
-    let dataSource:Array<String> = ["路由列表"]
+    let dataSource:Array<FBDebugRouterItem> = [FBDebugRouterItem.init("路由", _scheme: "debug_router_list")]
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,14 +80,14 @@ extension FBDebugHomeViewController:UICollectionViewDataSource,UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:FBDebugHomeCell = collectionView.dequeueReusableCell(withReuseIdentifier: "FBDebugHomeCellIdentifier", for: indexPath) as! FBDebugHomeCell
         let temp = dataSource[indexPath.row]
-        cell.setContentTitle(title: temp)
+        cell.setContentTitle(title: temp.name)
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            openHostString(host: "debug_router_list")
-        }
+        let temp = dataSource[indexPath.row]
+        openHostString(host: temp.scheme)
+        
     }
 
     

@@ -52,6 +52,9 @@ class FBDebugWindowHelper: NSObject {
         }
     }
     
+    static func disable() {
+        shared.disable()
+    }
 
     public func disable() {
         if self.window.rootViewController != nil {
@@ -68,6 +71,8 @@ extension FBDebugWindowHelper: FBDebugWindowDelegate {
     func isPointEvent(point: CGPoint) -> Bool {
         return self.vc.shouldReceive(point: point)
     }
+    
 }
+
 
 
