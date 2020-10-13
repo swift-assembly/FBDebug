@@ -7,10 +7,10 @@
 
 import UIKit
 
-class FBDebugRouterItem: NSObject {
-    var name:String!
-    var scheme:String!
-    convenience init(_ _name:String, _scheme:String) {
+public class FBDebugRouterItem: NSObject {
+    public var name:String!
+    public var scheme:String!
+    public convenience init(_ _name:String, _scheme:String) {
         self.init()
         name = _name
         scheme = _scheme

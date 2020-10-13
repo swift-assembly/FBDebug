@@ -11,12 +11,12 @@ import FBRouter
 
 
 class FBDebugRouterManager: NSObject {
-    public static let shared = FBDebugRouterManager()
+    static let shared = FBDebugRouterManager()
     let urlMappings:Dictionary<String,String> = [
                             "debug_router_list"        :"FBDebugRouterListViewController",
             ]
     func registerURLMappings() {
-        FBRouter.router().registURLMapping(urlmappings:urlMappings)
+        FBRouter.router().registURLMapping(urlmappings:urlMappings,bundle: "FBDebug")
     }
       
       

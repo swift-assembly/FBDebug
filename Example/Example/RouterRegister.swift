@@ -20,7 +20,7 @@ class RouterRegister: NSObject {
 						   "vc04":"ViewController04",
 						   "vc05":"ViewController05",
 						   "demo":"ViewControllerDemo"]
-        FBRouter.router().registURLMapping(urlmappings: urlMappings)
+        FBRouter.router().registURLMapping(urlmappings: urlMappings,bundle: "Example")
 		FBRouter.router().wrapNavgClass = BaseNavigationController.self as UINavigationController.Type
 	}
 }

@@ -35,7 +35,7 @@ class FBDebugHomeViewController: UIViewController {
         return temp
     }()
     
-    let dataSource:Array<FBDebugRouterItem> = [FBDebugRouterItem.init("路由", _scheme: "debug_router_list")]
+    let dataSource:Array<FBDebugRouterItem> = FBDebugWindowHelper.shared.dataSource
         
     override func viewDidLoad() {
         super.viewDidLoad()

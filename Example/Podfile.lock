@@ -1,18 +1,27 @@
 PODS:
-  - FBRouter (0.0.2):
-    - FBRouter/FBRouter (= 0.0.2)
-  - FBRouter/FBRouter (0.0.2)
+  - FBDebug (0.0.1):
+    - FBDebug/FBDebug (= 0.0.1)
+    - FBRouter
+  - FBDebug/FBDebug (0.0.1):
+    - FBRouter
+  - FBRouter (0.0.3):
+    - FBRouter/FBRouter (= 0.0.3)
+  - FBRouter/FBRouter (0.0.3)
 
 DEPENDENCIES:
-  - FBRouter (from `../`)
+  - FBDebug (from `../`)
+  - FBRouter (from `~/SynologyDrive/Private/FBRouter/`)
 
 EXTERNAL SOURCES:
-  FBRouter:
+  FBDebug:
     :path: "../"
+  FBRouter:
+    :path: "~/SynologyDrive/Private/FBRouter/"
 
 SPEC CHECKSUMS:
-  FBRouter: 8a4a92272078081af4bd5306befe489d8083a7d1
+  FBDebug: 44436fc9ed12f8a9ae2b276a8eeb1f1d9cae75a6
+  FBRouter: 375f13b01138d1df28c0f0787f281652edaa8292
 
-PODFILE CHECKSUM: 9e3ef94e009e8f2b1dea77a9edc6ac3b1fe6f487
+PODFILE CHECKSUM: 72f4fe87cce39b26223c421b7aef7b96a5ce7a53
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.3

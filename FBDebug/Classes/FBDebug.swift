@@ -7,12 +7,17 @@
 
 import UIKit
 
-class FBDebug: NSObject {
-    static func enable() {
+public class FBDebug: NSObject {
+    public  static func enable() {
         FBDebugWindowHelper.enable()
     }
     
-    static func disable() {
-        FBDebugWindowHelper.shared.disable()
+    public static func disable() {
+        FBDebugWindowHelper.disable()
     }
+    
+    public static func  registDebugPanle(_ list:[FBDebugRouterItem]) {
+        FBDebugWindowHelper.shared.dataSource.append(contentsOf: list)
+    }
+    
 }

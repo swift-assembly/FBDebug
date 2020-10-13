@@ -9,13 +9,12 @@
 import UIKit
 
 
-
 class FBDebugWindowHelper: NSObject {
-    public static let shared = FBDebugWindowHelper()
+    static let shared = FBDebugWindowHelper()
     let window: FBDebugWindow
     var displayedList = false
     lazy var vc = FBDebugViewController()
-
+    var dataSource:[FBDebugRouterItem] = [FBDebugRouterItem.init("路由", _scheme: "debug_router_list")]
     private override init() {
         self.window = FBDebugWindow(frame: UIScreen.main.bounds)
         // This is for making the window not to effect the StatusBarStyle
@@ -25,7 +24,7 @@ class FBDebugWindowHelper: NSObject {
     static func enable() {
         shared.enable()
     }
-    public func enable() {
+    func enable() {
         if self.window.rootViewController != self.vc {
             self.window.rootViewController = self.vc
             self.window.delegate = self
@@ -56,13 +55,15 @@ class FBDebugWindowHelper: NSObject {
         shared.disable()
     }
 
-    public func disable() {
+    func disable() {
         if self.window.rootViewController != nil {
             self.window.rootViewController = nil
             self.window.delegate = nil
             self.window.isHidden = true
         }
     }
+    
+    
 }
 
 
@@ -72,6 +73,12 @@ extension FBDebugWindowHelper: FBDebugWindowDelegate {
         return self.vc.shouldReceive(point: point)
     }
     
+}
+
+extension FBDebugWindowHelper {
+    public static func  registDebugPanle(_ list:[FBDebugRouterItem]) {
+        shared.dataSource.append(contentsOf: list)
+    }
 }
 
 

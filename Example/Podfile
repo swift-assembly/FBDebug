@@ -6,6 +6,7 @@ use_frameworks!
 
 
 target 'Example' do
-	pod 'FBRouter', :path => '../'
+	pod 'FBDebug', :path => '../'
+  pod 'FBRouter', :path => '~/SynologyDrive/Private/FBRouter/'
 end
 

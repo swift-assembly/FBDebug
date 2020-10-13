@@ -8,7 +8,7 @@
 
 import UIKit
 import FBRouter
-
+import FBDebug
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,FBRouterDelegate{
@@ -21,7 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,FBRouterDelegate{
 		self.window!.backgroundColor = UIColor.white
         self.window!.rootViewController = UINavigationController.init(rootViewController: ListViewController.init())
 		self.window!.makeKeyAndVisible()
-		
+//        FBDebug.
+        FBDebug.enable()
 		//注册路由
 		RouterRegister.registerURLMappings()
 		FBRouter.router().deleage = self
