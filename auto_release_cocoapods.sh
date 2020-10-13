@@ -5,4 +5,4 @@
 #pod trunk register flywithbug@gmail.com 'flywithbug' --verbose
 
 #上传
-pod trunk push FBRouter.podspec --allow-warnings
+pod trunk push FBDebug.podspec --allow-warnings
