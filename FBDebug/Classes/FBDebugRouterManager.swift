@@ -16,7 +16,7 @@ class FBDebugRouterManager: NSObject {
                             "debug_router_list"        :"FBDebugRouterListViewController",
             ]
     func registerURLMappings() {
-        FBRouter.router().registURLMapping(urlmappings:urlMappings,bundle: "FBDebug")
+        FBRouter.router().registURLMapping(urlmappings:urlMappings,bundleClass: self.classForCoder)
     }
       
       
