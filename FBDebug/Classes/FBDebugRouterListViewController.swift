@@ -21,6 +21,17 @@ class FBDebugRouterListViewController: UIViewController {
     lazy var dataSource:Array<FBDebugRouterModel> = {
         var temp:Array<FBDebugRouterModel> = []
         for item in FBRouter.router().urlMappings.keys.sorted() {
+            if (FBDebugRouterManager.shared.urlMappings[item] != nil) {
+                continue
+            }
+//            let target = FBRouter.router().urlTargetMappings[item]
+//            if target?.targetType == FBTargetType.controller{
+//                let model:FBDebugRouterModel = FBDebugRouterModel()
+//                model.name = FBRouter.router().urlMappings[item] ?? ""
+//                model.host = item
+//                temp.append(model)
+//            }
+            
             let model:FBDebugRouterModel = FBDebugRouterModel()
             model.name = FBRouter.router().urlMappings[item] ?? ""
             model.host = item
@@ -60,8 +71,16 @@ extension FBDebugRouterListViewController:UITableViewDataSource,UITableViewDeleg
             cell = UITableViewCell.init(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "UITableViewCell")
         }
         let model = dataSource[indexPath.row]
+        let target = FBRouter.router().urlTargetMappings[model.host]
         cell?.textLabel?.text = model.host
         cell?.detailTextLabel?.text = model.name
+        cell?.detailTextLabel?.textColor = UIColor.darkGray
+        if target?.targetType == FBTargetType.bridge {
+            cell?.detailTextLabel?.text = model.name + "--Bridge"
+        }else if target?.targetType == FBTargetType.undefined{
+            cell?.detailTextLabel?.text = model.name + "--undefine"
+            cell?.detailTextLabel?.textColor = UIColor.red
+        }
         return cell!
     }
     
